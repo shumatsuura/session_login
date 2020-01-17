@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :blogs
   before_validation { email.downcase! }
 
   has_secure_password

@@ -1,0 +1,31 @@
+<head>
+  <title>つぶやく？</title>
+</head>
+<body>
+
+  <header>
+  みんなの匿名つぶやき掲示板
+  </header>
+
+  <h1>つぶやき一覧</h1>
+
+  <p><%= notice %></p>
+
+  <table>
+  <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= blog.title %></td>
+      <td><%= blog.content %></td>
+      <td><%= link_to "編集", edit_blog_path(blog.id) %></td>
+      <td><%= link_to "削除", blog_path(blog.id), method: :delete ,data: {confirm: '本当に削除していいですか？'}%></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <div class="new_blog">
+  <%= link_to '新しくつぶやく',new_blog_path %>
+  </div>
+
+  <footer>copyright (c)【2020】 【Shunsuke Matsuura】 all rights reserved.</footer>
+
+  </body>
